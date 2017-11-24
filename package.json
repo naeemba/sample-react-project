@@ -1,16 +1,19 @@
 {
   "name": "sample-react-project",
+  "description": "sample-react-project",
+  "licence": "MIT",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1",
-    "react-scripts": "1.0.17"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-scripts": "1.0.17",
+    "material-ui": "1.0.0-beta.21"
   }
 }
