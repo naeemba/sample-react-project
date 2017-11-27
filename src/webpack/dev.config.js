@@ -49,7 +49,7 @@ module.exports = merge(commonConfig, {
         new HtmlWebpackPlugin({
             title: 'Sample React Project',
             template: 'src/webpack/index.html.ejs',
-            inject: 'head',
+            inject: 'body',
             minify: false
         }),
         new webpack.HotModuleReplacementPlugin()
