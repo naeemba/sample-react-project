@@ -5,9 +5,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config src/webpack/dev.config.js",
-    "prod": "webpack-dev-server --config src/webpack/prod.config.js",
-    "build": "rimraf src/dist && webpack --config src/webpack/prod.config.js"
+    "start": "npm run clean && webpack-dev-server --config src/webpack/dev.config.js",
+    "prod": "npm run clean && webpack-dev-server --config src/webpack/prod.config.js",
+    "build": "rimraf src/dist && webpack --config src/webpack/prod.config.js",
+    "clean" : "rimraf src/dist"
   },
   "dependencies": {
     "material-ui": "0.19.4",

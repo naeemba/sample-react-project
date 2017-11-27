@@ -24,9 +24,5 @@ module.exports = {
             children: true,
             minChunks: 2,
         }),
-
-        new webpack.EnvironmentPlugin([
-            'NODE_ENV',
-        ]),
     ]
 };

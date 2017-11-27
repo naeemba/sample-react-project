@@ -27,11 +27,6 @@ module.exports = merge(commonConfig, {
                 ],
             },
             {
-                test: /\.jsx?$/,
-                include: path.resolve('src'),
-                loader: "babel-loader",
-            },
-            {
                 test: [
                     /\.png$/,
                     /\.jpg$/
@@ -40,7 +35,7 @@ module.exports = merge(commonConfig, {
             },
             {
                 test: /\.(html|svg|jpe?g|png|ttf|woff2?)$/,
-                include: './',
+                include: path.resolve('src'),
                 use: {
                     loader: 'file-loader',
                     options: {
@@ -52,10 +47,10 @@ module.exports = merge(commonConfig, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve('./src/webpack/index.html'),
-            inject: true,
-            production: false,
-            preload: ['*.css']
+            title: 'Sample React Project',
+            template: 'src/webpack/index.html.ejs',
+            inject: 'head',
+            minify: false
         }),
         new webpack.HotModuleReplacementPlugin()
     ]

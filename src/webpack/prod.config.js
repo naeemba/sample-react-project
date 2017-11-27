@@ -6,8 +6,6 @@ const commonConfig = require('./common.config');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
-console.log(path.resolve('./src/webpack/index.html'));
-
 module.exports = merge(commonConfig, {
     devtool: 'source-map',
     output: {
@@ -41,8 +39,8 @@ module.exports = merge(commonConfig, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve('./src/webpack/index.html'),
-            inject: true,
+            template: 'src/webpack/index.html.ejs',
+            inject: 'head',
             production: true,
             preload: ['*.css'],
             minify: {
