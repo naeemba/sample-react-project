@@ -8,7 +8,8 @@
     "start": "npm run clean && webpack-dev-server --config src/webpack/dev.config.js",
     "prod": "npm run clean && webpack-dev-server --config src/webpack/prod.config.js",
     "build": "rimraf src/dist && webpack --config src/webpack/prod.config.js",
-    "clean" : "rimraf src/dist"
+    "clean" : "rimraf src/dist",
+    "start-react": "react-scripts start"
   },
   "dependencies": {
     "material-ui": "0.19.4",
