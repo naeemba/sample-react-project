@@ -64,7 +64,7 @@ export default class DefaultTheme extends React.Component {
                     onRequestChange={(isDrawerOpen) => this.setState({isDrawerOpen})}
                     open={this.state.isDrawerOpen}>
                     <AppBar onLeftIconButtonTouchTap={this.toggleDrawer.bind(this)}/>
-                    <div class="manager-avatar">
+                    <div className="manager-avatar">
                         <Avatar
                             src="../images/manager-avatar.jpg"
                             size={50} />
