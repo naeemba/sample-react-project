@@ -1,10 +1,8 @@
 import React from 'react';
-import UpperCard from './UpperCard';
-import LeftCard from './LeftCard';
+import PieChartCart from './PieChartCart';
+import BarChartCart from './BarChartCart';
 import RightCard from './RightCard';
 
-
-import UserDetail from '../containers/user-details';
 
 const MainPage = () => (
     <div>
@@ -26,11 +24,11 @@ const MainPage = () => (
 
         <div className="row-full">
             <div className="half">
-                <LeftCard/>
+                <PieChartCart/>
             </div>
 
             <div className="half">
-                <RightCard/>
+                <BarChartCart/>
             </div>
         </div>
         {/*<h2>User Details:</h2>*/}
