@@ -8,34 +8,30 @@ import UserDetail from '../containers/user-details';
 
 const MainPage = () => (
     <div>
-        <div className="boxedNine">
-            <UpperCard/>
-        </div>
-
-        <div className="half">
-            <div className="halfBox">
-                <LeftCard/>
-            </div>
-
-            <div className="halfLeftBox">
-                <RightCard/>
-            </div>
-        </div>
-
-        <div className="third">
+        <div className="row-full">
 
             <div className="oneThird">
                 <RightCard/>
             </div>
 
-            <div className="twoThird">
+            <div className="oneThird">
                 <RightCard/>
             </div>
 
-            <div className="laseThird">
+            <div className="oneThird">
                 <RightCard/>
             </div>
 
+        </div>
+
+        <div className="row-full">
+            <div className="half">
+                <LeftCard/>
+            </div>
+
+            <div className="half">
+                <RightCard/>
+            </div>
         </div>
         {/*<h2>User Details:</h2>*/}
         {/*<UserDetail/>*/}

@@ -28,13 +28,10 @@ export  default class LeftCard extends Component {
     handleReduce  () {
         this.setState({expanded: false});
     };
-    alertSth(props){
-        alert(props)
-    };
 
     render() {
         return (
-            <Card expanded={this.state.expanded} onExpandChange={this.alertSth(this.state.expanded)}>
+            <Card expanded={this.state.expanded}>
                 <CardHeader
                     title="URL Avatar"
                     subtitle="Subtitle"

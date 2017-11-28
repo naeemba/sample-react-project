@@ -13,19 +13,23 @@ export  default class UpperCard extends Component {
         };
     }
 
+    toggleCard() {
+        this.setState({expanded: !this.state.expanded});
+    }
+
     render() {
         return (
             <Card expanded={this.state.expanded} >
                 <CardHeader
                     title="URL Avatar"
                     subtitle="Subtitle"
-                    avatar="../images/user.jpeg"
                     actAsExpander={true}
                     showExpandableButton={true}
                 />
                 <CardText>
                     <Toggle
                         toggled={this.state.expanded}
+                        onToggle={this.toggleCard.bind(this)}
                         labelPosition="right"
                         label="This toggle controls the expanded state of the component."
                     />

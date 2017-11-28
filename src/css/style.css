@@ -4,9 +4,25 @@ body {
 }
 
 div.manager-avatar {
-    /*width: 50px;*/
     height: 50px;
     margin: 10px 10px;
+}
+
+div.row-full {
+    margin-top: 2%;
+    clear: both;
+}
+
+div.oneThird{
+    width: 31.3%;
+    margin: 0 1%;
+    display: inline-block;
+}
+
+div.half{
+    width: 48%;
+    margin: 0 1%;
+    display: inline-block;
 }
 
 div.avatarTitle{
@@ -19,46 +35,4 @@ div.avatarTitle{
 div.boxedNine{
     width: 96%;
     margin: 0 auto 1% auto;
-}
-
-div.half{
-    width: 96%;
-    margin: 0 auto 1% auto;
-    position: relative;
-}
-div.half > div.halfBox{
-    width: 49.5%;
-    float: right;
-    margin-bottom: 1%;
-}
-
-div.half > div.halfLeftBox{
-    width: 49.5%;
-    float: left;
-    margin-bottom: 1%;
-    margin-right: 1%;
-}
-
-div.third{
-    width: 96%;
-    display: block;
-    margin: 0 auto 1% auto;
-    position: relative;
-}
-
-div.third > div.oneThird{
-    width: 32.6%;
-    float: left;
-}
-
-div.third > div.twoThird{
-    width: 32.6%;
-    float: left;
-    margin-left: 1%;
-}
-
-div.third >div.laseThird{
-    width: 32.6%;
-    float: left;
-    margin-left: 1%;
 }
