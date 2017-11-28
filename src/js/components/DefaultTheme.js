@@ -10,6 +10,7 @@ import Badge from 'material-ui/Badge';
 import IconButton from 'material-ui/IconButton';
 import NotificationsIcon from 'material-ui/svg-icons/social/notifications';
 
+
 export default class DefaultTheme extends React.Component {
 
     constructor(props) {
@@ -62,15 +63,24 @@ export default class DefaultTheme extends React.Component {
 
                 <Drawer
                     onRequestChange={(isDrawerOpen) => this.setState({isDrawerOpen})}
-                    open={this.state.isDrawerOpen}>
+                    open={this.state.isDrawerOpen}
+                    >
                     <AppBar onLeftIconButtonTouchTap={this.toggleDrawer.bind(this)}/>
                     <div className="manager-avatar">
-                        <Avatar
-                            src="../images/manager-avatar.jpg"
-                            size={50} />
+
+
+                            <Avatar
+                                src="../images/manager-avatar.jpg"
+                                style={{border:"3px solid rgba(115, 117, 232, 0.64)"}}
+                            />
+                         <div className="avatarTitle">Mr Manager</div>
+
+
+
                     </div>
                     <MenuItem>Menu Item</MenuItem>
                     <MenuItem>Menu Item 2</MenuItem>
+
                 </Drawer>
             </div>
         )

@@ -1,6 +1,6 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import DefaultTheme from './DefaultTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 

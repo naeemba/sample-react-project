@@ -1,14 +1,44 @@
 import React from 'react';
-import UserList from '../containers/user-list';
+import UpperCard from './UpperCard';
+import LeftCard from './LeftCard';
+import RightCard from './RightCard';
+
+
 import UserDetail from '../containers/user-details';
 
 const MainPage = () => (
     <div>
-        <h2>Username List:</h2>
-        <UserList/>
-        <hr/>
-        <h2>User Details:</h2>
-        <UserDetail/>
+        <div className="boxedNine">
+            <UpperCard/>
+        </div>
+
+        <div className="half">
+            <div className="halfBox">
+                <LeftCard/>
+            </div>
+
+            <div className="halfLeftBox">
+                <RightCard/>
+            </div>
+        </div>
+
+        <div className="third">
+
+            <div className="oneThird">
+                <RightCard/>
+            </div>
+
+            <div className="twoThird">
+                <RightCard/>
+            </div>
+
+            <div className="laseThird">
+                <RightCard/>
+            </div>
+
+        </div>
+        {/*<h2>User Details:</h2>*/}
+        {/*<UserDetail/>*/}
     </div>
 );
 
