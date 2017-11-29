@@ -36,9 +36,9 @@ const MainPage = () => (
                 <BarChartCart/>
             </div>
         </div>
-        <h2>User Details:</h2>
-        <UserList />
-        <UserDetail/>
+        {/*<h2>User Details:</h2>*/}
+        {/*<UserList />*/}
+        {/*<UserDetail/>*/}
         <OrderDetail/>
         <CommentDetail/>
 
