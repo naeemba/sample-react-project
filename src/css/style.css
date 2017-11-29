@@ -11,6 +11,7 @@ div.manager-avatar {
 div.row-full {
     margin-top: 2%;
     clear: both;
+    display: flex;
 }
 
 div.oneThird{

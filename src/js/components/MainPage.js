@@ -1,23 +1,27 @@
 import React from 'react';
+import LatestComments from './LatestComments';
+import LatestSales from './LatestSales';
+import BestSellers from './BestSellers';
+import UserDetail from '../containers/user-details';
+import OrderDetail from '../containers/order-details';
+import UserList from '../containers/user-list';
 import PieChartCart from './PieChartCart';
 import BarChartCart from './BarChartCart';
-import RightCard from './RightCard';
-
 
 const MainPage = () => (
     <div>
         <div className="row-full">
 
             <div className="oneThird">
-                <RightCard/>
+                <LatestSales/>
             </div>
 
             <div className="oneThird">
-                <RightCard/>
+                <LatestComments/>
             </div>
 
             <div className="oneThird">
-                <RightCard/>
+                <BestSellers/>
             </div>
 
         </div>
@@ -31,8 +35,10 @@ const MainPage = () => (
                 <BarChartCart/>
             </div>
         </div>
-        {/*<h2>User Details:</h2>*/}
-        {/*<UserDetail/>*/}
+        <h2>User Details:</h2>
+        <UserList />
+        <UserDetail/>
+        <OrderDetail/>
     </div>
 );
 
