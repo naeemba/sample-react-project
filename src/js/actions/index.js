@@ -11,3 +11,10 @@ export const selectedOrder = (order) => {
         payload: order
     };
 };
+
+export const selectedComments = (comment) => {
+    return {
+        type: 'SELECTED_COMMENT',
+        payload: comment
+    };
+};

@@ -4,6 +4,7 @@ import LatestSales from './LatestSales';
 import BestSellers from './BestSellers';
 import UserDetail from '../containers/user-details';
 import OrderDetail from '../containers/order-details';
+import CommentDetail from '../containers/comment-details';
 import UserList from '../containers/user-list';
 import PieChartCart from './PieChartCart';
 import BarChartCart from './BarChartCart';
@@ -39,6 +40,8 @@ const MainPage = () => (
         <UserList />
         <UserDetail/>
         <OrderDetail/>
+        <CommentDetail/>
+
     </div>
 );
 

@@ -23,7 +23,7 @@ import {Pie} from 'react-chartjs-2';
     const options = {
         title: {
             display: true,
-            text: "Chore Distribution for this Month",
+            text: "Distribution Chart for this Month",
             fontFamily: "Roboto",
             fontSize: 20,
         }

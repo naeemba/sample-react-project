@@ -1,9 +1,11 @@
 import React ,{Component} from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
+import {selectedComments} from "../actions/index";
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import MenuItem from 'material-ui/MenuItem';
 
-
-export  default class LatestComments extends Component {
+class LatestComments extends Component {
 
     constructor(props) {
         super(props);
@@ -16,17 +18,40 @@ export  default class LatestComments extends Component {
         this.setState({expanded: !this.state.expanded});
     }
 
+    createCommentsItems() {
+        return this.props.lastComments.map((comment) => {
+            return (
+                <MenuItem
+                    key={comment.orderId}
+                    primaryText={comment.subject}
+                    onClick={() => this.props.selectedComments(comment)}/>
+            );
+        });
+    }
+
     render() {
         return (
             <Card expanded={this.state.expanded} onExpandChange={this.toggleCard.bind(this)}>
                 <CardHeader
-                    title="Latest Comments"
+                    title="Lase Comments"
                     actAsExpander={true}
                     showExpandableButton={true}/>
                 <CardText expandable={true}>
-                    <MenuItem primaryText="Notification 1" />
+                    {this.createCommentsItems()}
                 </CardText>
             </Card>
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        lastComments: state.lastComments
+    }
+}
+
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({selectedComments: selectedComments}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(LatestComments);
