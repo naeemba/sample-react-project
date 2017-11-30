@@ -10,28 +10,22 @@ import {
     TableRow,
     TableRowColumn,
 } from 'material-ui/Table';
+import {bindActionCreators} from 'redux';
+import {selectedOrder} from "../actions/index";
 
 
 class OrderDetail extends Component {
 
-    constructor(props) {
-        super(props);
-    }
-
     handleClose() {
-        if(document.getElementsByClassName('order-dialog')[0])
-            document.getElementsByClassName('order-dialog')[0].style.display = 'none';
+        this.props.selectedOrder(null);
     }
 
     render() {
-        if(!this.props.selectedOrder) {
+        if(!this.props.order) {
             return (
                 <div></div>
             );
         }
-
-        if(document.getElementsByClassName('order-dialog')[0])
-            document.getElementsByClassName('order-dialog')[0].style.display = '';
 
         const actions = [
             <FlatButton
@@ -62,12 +56,12 @@ class OrderDetail extends Component {
                     </TableHeader>
                     <TableBody displayRowCheckbox={false} showRowHover={true}>
                         <TableRow>
-                            <TableRowColumn>{this.props.selectedOrder.orderId}</TableRowColumn>
-                            <TableRowColumn>{this.props.selectedOrder.customer}</TableRowColumn>
-                            <TableRowColumn>{this.props.selectedOrder.good}</TableRowColumn>
-                            <TableRowColumn>{this.props.selectedOrder.quantity}</TableRowColumn>
-                            <TableRowColumn>{this.props.selectedOrder.price}</TableRowColumn>
-                            <TableRowColumn>{this.props.selectedOrder.totalAmount}</TableRowColumn>
+                            <TableRowColumn>{this.props.order.orderId}</TableRowColumn>
+                            <TableRowColumn>{this.props.order.customer}</TableRowColumn>
+                            <TableRowColumn>{this.props.order.good}</TableRowColumn>
+                            <TableRowColumn>{this.props.order.quantity}</TableRowColumn>
+                            <TableRowColumn>{this.props.order.price}</TableRowColumn>
+                            <TableRowColumn>{this.props.order.totalAmount}</TableRowColumn>
                         </TableRow>
                     </TableBody>
                 </Table>
@@ -79,8 +73,12 @@ class OrderDetail extends Component {
 
 function mapStateToProps(state) {
     return {
-        selectedOrder: state.selectedOrder
+        order: state.selectedOrder
     }
 }
 
-export default connect(mapStateToProps)(OrderDetail)
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({selectedOrder: selectedOrder}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(OrderDetail)

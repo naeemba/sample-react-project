@@ -22,7 +22,7 @@ class LatestComments extends Component {
         return this.props.lastComments.map((comment) => {
             return (
                 <MenuItem
-                    key={comment.orderId}
+                    key={comment.commentId}
                     primaryText={comment.subject}
                     onClick={() => this.props.selectedComments(comment)}/>
             );
