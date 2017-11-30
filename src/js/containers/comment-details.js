@@ -10,28 +10,25 @@ import {
     TableRow,
     TableRowColumn,
 } from 'material-ui/Table';
+import {bindActionCreators} from 'redux';
+import {selectedComments} from "../actions/index";
 
 
 class CommentDetail extends Component {
 
-    constructor(props) {
-        super(props);
+    handleClose() {
+        this.props.selectedComments(null);
     }
 
-    handleClose() {
-        if(document.getElementsByClassName('comment-dialog')[0])
-            document.getElementsByClassName('comment-dialog')[0].style.display = 'none';
-    }
 
     render() {
-        if(!this.props.selectedComments) {
+        if(!this.props.comments) {
             return (
                 <div></div>
             );
         }
 
-        if(document.getElementsByClassName('comment-dialog')[0])
-            document.getElementsByClassName('comment-dialog')[0].style.display = '';
+
 
         const actions = [
             <FlatButton
@@ -66,16 +63,16 @@ class CommentDetail extends Component {
                         <TableRow>
                             <TableRowColumn
                                 style={{width:'2rem'}}
-                            >{this.props.selectedComments.commentId}</TableRowColumn>
+                            >{this.props.comments.commentId}</TableRowColumn>
                             <TableRowColumn
                                 style={{width:'3rem'}}
-                            >{this.props.selectedComments.person}</TableRowColumn>
+                            >{this.props.comments.person}</TableRowColumn>
                             <TableRowColumn
                                 style={{height:'fit-content' ,whiteSpace: 'pre-wrap'}}
-                            >{this.props.selectedComments.subject}</TableRowColumn>
+                            >{this.props.comments.subject}</TableRowColumn>
                             <TableRowColumn
                                 style={{height:'fit-content' , whiteSpace: 'pre-wrap'}}
-                            >{this.props.selectedComments.body}</TableRowColumn>
+                            >{this.props.comments.body}</TableRowColumn>
                         </TableRow>
                     </TableBody>
                 </Table>
@@ -87,8 +84,12 @@ class CommentDetail extends Component {
 
 function mapStateToProps(state) {
     return {
-        selectedComments: state.selectedComments
+        comments: state.selectedComments
     }
 }
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({selectedComments: selectedComments}, dispatch);
+}
 
-export default connect(mapStateToProps)(CommentDetail)
+
+export default connect(mapStateToProps,matchDispatchToProps)(CommentDetail)
