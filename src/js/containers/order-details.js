@@ -57,10 +57,10 @@ class OrderDetail extends Component {
                     <TableBody displayRowCheckbox={false} showRowHover={true}>
                         <TableRow>
                             <TableRowColumn>{this.props.order.orderId}</TableRowColumn>
-                            <TableRowColumn>{this.props.order.customer}</TableRowColumn>
-                            <TableRowColumn>{this.props.order.good}</TableRowColumn>
+                            <TableRowColumn>{this.props.order.customer.firstName + ' ' + this.props.order.customer.lastName}</TableRowColumn>
+                            <TableRowColumn>{this.props.order.good.title}</TableRowColumn>
+                            <TableRowColumn>{this.props.order.amount}</TableRowColumn>
                             <TableRowColumn>{this.props.order.quantity}</TableRowColumn>
-                            <TableRowColumn>{this.props.order.price}</TableRowColumn>
                             <TableRowColumn>{this.props.order.totalAmount}</TableRowColumn>
                         </TableRow>
                     </TableBody>

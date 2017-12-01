@@ -4,7 +4,8 @@ import MenuItem from 'material-ui/MenuItem';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {selectedOrder} from "../actions/index";
-
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag'
 
 class LatestSales extends Component {
 
@@ -20,11 +21,16 @@ class LatestSales extends Component {
     }
 
     createOrderItems() {
-        return this.props.lastOrders.map((order) => {
+        if(this.props.lastOrdersQuery.loading) {
+            return (
+                <div></div>
+            )
+        }
+        return this.props.lastOrdersQuery.allOrders.map((order) => {
             return (
                 <MenuItem
                     key={order.orderId}
-                    primaryText={order.customer + ', ' + order.good}
+                    primaryText={order.customer.firstName + ', ' + order.good.title}
                     secondaryText={order.quantity}
                     onClick={() => this.props.selectedOrder(order)}/>
             );
@@ -46,6 +52,31 @@ class LatestSales extends Component {
     }
 }
 
+const LAST_SALES_QUERY = gql`
+query LastOrdersQuery {
+  allOrders (orderBy: orderId_DESC first: 4) {
+    orderId
+    customer {
+      firstName
+      lastName
+    }
+    good {
+      title
+    }
+    amount
+    quantity
+    totalAmount
+  }
+}`;
+
+const LastOrdersWithQuery = graphql(LAST_SALES_QUERY, {
+    name: 'lastOrdersQuery',
+    options: {
+        fetchPolicy: 'network-only',
+    },
+})(LatestSales);
+
+
 function mapStateToProps(state) {
     return {
         lastOrders: state.lastOrders
@@ -56,4 +87,4 @@ function matchDispatchToProps(dispatch) {
     return bindActionCreators({selectedOrder: selectedOrder}, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(LatestSales);
+export default connect(mapStateToProps, matchDispatchToProps) (LastOrdersWithQuery);
