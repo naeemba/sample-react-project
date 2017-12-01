@@ -55,24 +55,24 @@ class CommentDetail extends Component {
                             <TableHeaderColumn
                                 style={{width:'3rem'}}
                             >User</TableHeaderColumn>
-                            <TableHeaderColumn>subject</TableHeaderColumn>
-                            <TableHeaderColumn>body</TableHeaderColumn>
+                            <TableHeaderColumn>Subject</TableHeaderColumn>
+                            <TableHeaderColumn>Body</TableHeaderColumn>
                         </TableRow>
                     </TableHeader>
                     <TableBody displayRowCheckbox={false} showRowHover={true}>
                         <TableRow>
                             <TableRowColumn
-                                style={{width:'2rem'}}
+                                style={{width:'1rem'}}
                             >{this.props.comments.commentId}</TableRowColumn>
                             <TableRowColumn
-                                style={{width:'3rem'}}
-                            >{this.props.comments.person}</TableRowColumn>
-                            <TableRowColumn
-                                style={{height:'fit-content' ,whiteSpace: 'pre-wrap'}}
-                            >{this.props.comments.subject}</TableRowColumn>
+                                style={{width:'5rem'}}
+                            >{this.props.comments.customer.firstName} {this.props.comments.customer.lastName}</TableRowColumn>
                             <TableRowColumn
                                 style={{height:'fit-content' , whiteSpace: 'pre-wrap'}}
                             >{this.props.comments.body}</TableRowColumn>
+                            <TableRowColumn
+                                style={{height:'fit-content' ,whiteSpace: 'pre-wrap'}}
+                            >{this.props.comments.subject}</TableRowColumn>
                         </TableRow>
                     </TableBody>
                 </Table>

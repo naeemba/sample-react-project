@@ -23,7 +23,9 @@ class LatestSales extends Component {
     createOrderItems() {
         if(this.props.lastOrdersQuery.loading) {
             return (
-                <div></div>
+                <div className='loading' >
+                    <img   src={'../../images/loading.gif'} />
+                </div>
             )
         }
         return this.props.lastOrdersQuery.allOrders.map((order) => {

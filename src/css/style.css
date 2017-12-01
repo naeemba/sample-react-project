@@ -39,3 +39,8 @@ div.boxedNine{
     width: 96%;
     margin: 0 auto 1% auto;
 }
+div.loading > img{
+    margin: 0 auto;
+    display: block;
+    width: 60px;
+}

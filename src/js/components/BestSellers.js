@@ -4,6 +4,8 @@ import {selectedOrder} from "../actions/index";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import MenuItem from 'material-ui/MenuItem';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag'
 
 class BestSellers extends Component {
 
@@ -19,11 +21,18 @@ class BestSellers extends Component {
     }
 
     createOrderItems() {
-        return this.props.bestOrders.map((order) => {
+        if(this.props.lastBestSellerQuery.loading) {
+            return (
+                <div className='loading' >
+                    <img   src={'../../images/loading.gif'} />
+                </div>
+            )
+        }
+        return this.props.lastBestSellerQuery.allOrders.map((order) => {
             return (
                 <MenuItem
                     key={order.orderId}
-                    primaryText={order.customer + ', ' + order.good}
+                    primaryText={order.customer.firstName + ', ' + order.good.title}
                     secondaryText={order.quantity}
                     onClick={() => this.props.selectedOrder(order)}/>
             );
@@ -45,6 +54,31 @@ class BestSellers extends Component {
     }
 }
 
+const LAST_BERST_SALES_QUERY = gql`
+query lastBestSellerQuery {
+  allOrders (orderBy: totalAmount_DESC first: 4) {
+    orderId
+    customer {
+      firstName
+      lastName
+    }
+    good {
+      title
+    }
+    amount
+    quantity
+    totalAmount
+  }
+}`;
+
+const lastBestSellerQuery = graphql(LAST_BERST_SALES_QUERY, {
+    name: 'lastBestSellerQuery',
+    options: {
+        fetchPolicy: 'network-only',
+    },
+})(BestSellers);
+
+
 function mapStateToProps(state) {
     return {
         bestOrders: state.bestOrders
@@ -55,4 +89,4 @@ function matchDispatchToProps(dispatch) {
     return bindActionCreators({selectedOrder: selectedOrder}, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(BestSellers);
+export default connect(mapStateToProps, matchDispatchToProps)(lastBestSellerQuery);
