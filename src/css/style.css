@@ -1,8 +1,18 @@
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
+    height: 100%;
     margin: 0;
     /*background-color: rgb(48, 48, 48);*/
     overflow: auto !important;
     background-color: rgb(236, 234, 234);
+}
+
+.main-div {
+    overflow: auto;
 }
 
 div.manager-avatar {
@@ -11,7 +21,8 @@ div.manager-avatar {
 }
 
 div.row-full {
-    margin-top: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     clear: both;
     display: flex;
 }

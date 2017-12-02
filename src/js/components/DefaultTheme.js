@@ -34,7 +34,7 @@ export default class DefaultTheme extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="main-div">
                 <AppBar onLeftIconButtonTouchTap={this.toggleDrawer.bind(this)} title="Title">
                     <Badge
                         onClick={this.toggleNotifications.bind(this)}
